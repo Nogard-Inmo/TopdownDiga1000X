@@ -5,8 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+
+    public GameObject exitGameMenu;
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    
+    public void DontExitGame()
+    {
+        exitGameMenu.SetActive(false);
     }
 }

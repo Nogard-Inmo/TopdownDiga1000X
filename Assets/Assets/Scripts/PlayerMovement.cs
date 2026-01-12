@@ -8,12 +8,20 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     public Animator animator;
 
+    public GameObject exitGameMenu;
+
+    public KeyCode exitKey = KeyCode.Escape;
+
     void Update()
     {
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        if (Input.GetKeyDown(exitKey))
+        {
+            OpenExitMenu();
+        }
 
         if (movement.sqrMagnitude > 1)
         {
@@ -55,5 +63,10 @@ public class PlayerMovement : MonoBehaviour
 	    {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    }
+
+    public void OpenExitMenu()
+    {
+        exitGameMenu.SetActive(true);
     }
 }
